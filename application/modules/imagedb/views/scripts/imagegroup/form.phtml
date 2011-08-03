@@ -1,0 +1,19 @@
+<script type="text/javascript">
+var gallery = <?=$this->gallery?>;
+</script>
+<?php
+if ($this->form){
+	$this->form->setAction($this->url());
+	echo $this->form;
+}
+?>
+
+<div class="sortable_images">
+<?php if (isset($this->images) && is_array($this->images)){ ?>
+	<?php foreach ($this->images as $image){ ?>
+		<div class="image" id="img_<?=$image['id']?>">
+		<?php echo $this->image($image['id'], 135, 135, '', true); ?>
+		</div>
+	<?php } ?>
+<?php } ?>
+</div>

@@ -1,0 +1,20 @@
+<script type="text/javascript">
+var gallery = <?=$this->gallery?>;
+var commission = <?=$this->commission?>;
+</script>
+
+<div class="image_list">
+	<?php foreach ($this->entries as $entry) { ?>
+		<div class="image">
+			<?php if (intval($this->gallery) > 0) { ?>
+				<a href="#gal_choose" class="gal_choose<?php if (in_array($entry->id, $this->images)) { echo ' chosen'; }?>" id="img_<?=$entry->id?>">
+					<?php echo $this->image($entry->id, 135, 135, $entry->headline, true); ?>
+				</a>
+			<?php } else { ?>
+				<a href="javascript:choose_image(<?=$entry->id?>, '<?=$this->elementName?>', '<?=$this->image($entry->id, 135, 135, '', true, false)?>');">
+					<?php echo $this->image($entry->id, 135, 135, $entry->headline, true); ?>
+				</a>
+			<?php } ?>
+		</div>
+	<?php } ?> 
+</div>

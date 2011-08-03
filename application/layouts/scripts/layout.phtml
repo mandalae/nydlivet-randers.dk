@@ -1,0 +1,47 @@
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<?php echo $this->headTitle(); ?>
+	<?php echo $this->headMeta(); ?>
+	<?php echo $this->headLink(); ?>
+	<?php echo $this->headScript(); ?>
+</head>
+<body id="page5">
+	<div id="main">
+	<!-- header -->
+		<div id="header">
+			<!-- <?=$this->active?> -->
+			<ul class="site-nav">
+				<li><a href="/"<?=($this->active=='frontpage') ? ' class="act"' : ''?>>Forside</a></li>
+				<li><a href="/hold"<?=($this->active=='classes') ? ' class="act"' : ''?>>Hold</a></li>
+				<li><a href="/foredrag"<?=($this->active=='courses') ? ' class="act"' : ''?>>Foredrag</a></li>
+				<li><a href="/kontakt"<?=($this->active=='contact') ? ' class="act"' : ''?>>Kontakt</a></li>
+				<?php if (!Zend_Auth::getInstance()->hasIdentity()){ ?> 
+					<li class="right"><a href="/auth/login"<?=($this->active=='login') ? ' class="act"' : ''?>>Log ind</a></li>
+					<li class="right nobg"><a href="/bruger/opret"<?=($this->active=='users') ? ' class="act"' : ''?>>Opret bruger</a></li>
+				<?php } else { ?>
+					<li class="right nobg"><a href="/auth/logout">Log ud</a></li>
+				<?php } ?>
+			</ul>
+			<div class="logo"><a href="/"><img src="/images/logo.png" height="95" width="418" alt="logo" /></a></div>
+			<div class="logo-flower"><img src="/images/logo-flower.png" height="104" width="180" alt="logo flower" /></div>
+		</div>
+	<!-- content -->
+		<div id="content">
+			<div class="inner_copy"></div>
+			<div class="indent1">
+				<?php echo $this->layout()->content; ?>
+			</div>
+		</div>
+	<!-- footer -->
+		<div id="footer">
+			<div class="indent">
+				<div class="fleft">Copyright &copy; - Nyd Livet</div>
+				<!--<div class="fright">More <a href="http://www.websitetemplatesonline.com" title="WTO - website templates and Flash templates">Free Website Templates</a> at WTO</div>-->
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript"> Cufon.now(); </script>
+	<div class="cal_mo"></div>
+</body>
+</html>

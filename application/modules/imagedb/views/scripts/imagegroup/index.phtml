@@ -1,0 +1,21 @@
+<p>
+<a href="/imagedb/imagegroup/form">Opret</a>
+</p>
+<table>
+	<thead>
+		<tr>
+			<td>Aktiv</td>
+			<td>Valgt</td>
+			<td>Overskrift</td>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ($this->entries as $entry): ?>
+        <tr>
+        	<td><input type="checkbox" class="gallery_active" value="<?=$entry->id?>"<?php if ($entry->active > 0) { echo ' checked="checked"'; } ?> />
+        	<td><input type="checkbox" class="gallery_choose" value="<?=$entry->id?>"<?php if ($this->chosen == $entry->id) { echo ' checked="checked"'; } ?> />
+        	<td><a href="/imagedb/imagegroup/form?id=<?=$entry->id?>"><?=$entry->name?></a></td>
+        </tr>
+        <?php endforeach ?>
+	</tbody>
+</table>

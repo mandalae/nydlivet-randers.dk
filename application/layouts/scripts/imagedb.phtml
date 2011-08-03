@@ -1,0 +1,28 @@
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<?php echo $this->headTitle(); ?>
+	<?php echo $this->headLink(); ?>
+	<?php echo $this->headScript(); ?>
+	<?php if (isset($this->close)) { ?>
+	<script language="javascript" type="text/javascript">
+	window.close();
+	</script>
+	<?php } ?>
+</head>
+ 
+<body>
+	<div class="strip">
+		<ul>
+			<li><a href="/imagedb/">search</a></li>
+			<li><a href="/imagedb/upload">upload</a></li>
+			<li><a href="/imagedb/imagegroup">galleries</a></li>
+			<li><a href="/imagedb/commission">commissions</a></li>
+			<li><a href="#" class="close_imagedb">close</a></li>
+		</ul>
+	</div>
+	<div class="container content">
+		<?php echo $this->layout()->content; ?>
+	</div>
+</body>
+</html>

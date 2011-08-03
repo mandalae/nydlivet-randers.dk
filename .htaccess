@@ -1,0 +1,38 @@
+SetEnv APPLICATION_ENV development
+
+RewriteEngine On
+
+FileETag MTime Size
+
+<IfModule mod_headers.c>
+# 1 YEAR
+<FilesMatch "\.(ico|pdf|flv)$">
+        Header set Cache-Control "max-age=29030400, public"
+</FilesMatch>
+# 1 WEEK
+<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+        Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault A0
+ExpiresByType image/x-icon A2592000
+ExpiresByType application/x-javascript A3600
+ExpiresByType text/css A604800
+ExpiresByType image/gif A604800
+ExpiresByType image/png A604800
+ExpiresByType image/jpeg A604800
+ExpiresByType text/plain A300
+ExpiresByType application/x-shockwave-flash A604800
+ExpiresByType video/x-flv A604800
+ExpiresByType application/pdf A604800
+ExpiresByType application/xml A1800
+</IfModule>
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]

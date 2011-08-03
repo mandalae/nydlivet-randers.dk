@@ -1,0 +1,18 @@
+<p>
+<a href="/admin/text/form">Opret</a>
+</p>
+<table>
+	<thead>
+		<tr>
+			<td>Overskrift</td>
+			<td>Slet</td>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ($this->entries as $entry): ?>
+        <tr>
+        	<td><a href="/admin/text/form?id=<?=$entry->id?>"><?=$entry->headline?></a></td>
+        </tr>
+        <?php endforeach ?>
+	</tbody>
+</table>

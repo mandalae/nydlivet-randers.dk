@@ -1,0 +1,13 @@
+<?php
+foreach ($this->news as $item){
+?>
+	<div class="newsitem">
+		<h2><?=$item->headline?></h2>
+		<h3><?=$this->todate($item->active)?></h3>
+		<p>
+			<?=nl2br($item->text)?>
+		</p>
+	</div>
+<?php
+}
+?>

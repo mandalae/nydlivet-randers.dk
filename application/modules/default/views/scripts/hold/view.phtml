@@ -1,0 +1,11 @@
+<h2><?=$this->course['name']?></h2>
+<p>
+<?=$this->course['description']?>
+</p>
+<?php
+if (Zend_Auth::getInstance()->hasIdentity()){
+?>
+
+<a href="#">Tilmeld kursus</a>
+
+<? } ?>
